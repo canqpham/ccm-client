@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+// import Propstype from 
 const RegisterPage = props => {
   return (
     <div>
@@ -12,19 +12,30 @@ const RegisterPage = props => {
           <p className="login-box-msg">Register a new membership</p>
 
             <div className="form-group has-feedback">
-              <input type="text" className="form-control" placeholder="Full name" />
+              <input type="text" className="form-control" placeholder="Full name"
+                value = {props.fullName}
+                onChange={e => props.changeValue('fullName', e.target.value)}
+              />
               <span className="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div className="form-group has-feedback">
-              <input type="email" className="form-control" placeholder="Email" />
+              <input type="email" className="form-control" placeholder="Email" 
+              value = {props.email}
+              onChange={e => props.changeValue('email', e.target.value)}
+              />
               <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div className="form-group has-feedback">
-              <input type="password" className="form-control" placeholder="Password" />
+              <input type="password" className="form-control" placeholder="Password" 
+              value = {props.password}
+              onChange={e => props.changeValue('password', e.target.value)}/>
               <span className="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div className="form-group has-feedback">
-              <input type="password" className="form-control" placeholder="Retype password" />
+              <input type="password" className="form-control" placeholder="Retype password" 
+              value = {props.retypePassword}
+              onChange={e => props.changeValue('retypePassword', e.target.value)}
+              />
               <span className="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div className="row">
@@ -36,7 +47,9 @@ const RegisterPage = props => {
                 </div>
               </div>
               <div className="col-xs-4">
-                <button type="submit" className="btn btn-primary btn-block btn-flat">Register</button>
+                <button type="submit" className="btn btn-primary btn-block btn-flat"
+                  onClick={() => props.register()}
+                >Register</button>
               </div>
             </div>
           <a href="login.html" className="text-center">I already have a membership</a>
